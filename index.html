@@ -3,107 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halal Delights | Authentic & Pure</title>
+    <title>Halal Delights | Premium Dining</title>
     <style>
+        /* CSS STYLING ENHANCEMENTS */
+        :root {
+            --primary-green: #2d5a27;
+            --accent-gold: #c5a059;
+            --light-bg: #fdfdfd;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            color: #333;
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
-        header {
-            background: #2d5a27;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
+
+        /* Hero Section Styling */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            height: 60vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            background: #1e3d1a;
-        }
-        nav a {
+            align-items: center;
             color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
+            text-align: center;
         }
-        nav a:hover {
-            background: #2d5a27;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        .features {
+
+        /* New Menu Section Grid */
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            background: #f4f4f4;
-            padding: 40px;
-        }
-        .feature-item {
-            background: white;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        footer {
-            background: #222;
+
+        .menu-card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background: white;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Interactive Checker Styling */
+        #checker-tool {
+            background: #e9f5e8;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        button {
+            background: var(--primary-green);
             color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        h2 { color: #2d5a27; }
+
+        button:hover { background: #1e3d1a; }
+        
+        .result-text { margin-top: 15px; font-weight: bold; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Halal Delights</h1>
-        <p>Pure, Ethical, and Delicious</p>
+    <header class="hero">
+        <h1>Welcome to Halal Keeps</h1>
+        <p>Experience the Art of Ethical Cuisine</p>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="about">
-        <h2>About Halal Food</h2>
-        <p>Halal is an Arabic word meaning <strong>"permissible."</strong> In the context of food, it refers to dietary standards as prescribed in the Qu'ran. Halal food is not just about what you eat, but how the food is prepared, processed, and sourced, emphasizing cleanliness and compassion.</p>
-        <p>Beyond religious observance, many choose Halal for its focus on food safety, hygiene, and the ethical treatment of animals.</p>
+    <section id="menu" style="max-width: 1000px; margin: auto; padding: 50px 20px;">
+        <h2 style="text-align: center; color: var(--primary-green);">Our Signature Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div style="padding: 15px;">
+                    <h3>Lamb Kabsa</h3>
+                    <p>Slow-cooked tender lamb served over fragrant spiced rice.</p>
+                    <span style="color: var(--accent-gold); font-weight: bold;">$18.50</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div style="padding: 15px;">
+                    <h3>Grilled Mezze Platter</h3>
+                    <p>Hummus, falafel, and halloumi with warm pita bread.</p>
+                    <span style="color: var(--accent-gold); font-weight: bold;">$14.00</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div style="padding: 15px;">
+                    <h3>Saffron Chicken</h3>
+                    <p>Organic chicken breast marinated in saffron and yogurt.</p>
+                    <span style="color: var(--accent-gold); font-weight: bold;">$16.00</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <div class="features" id="features">
-        <div class="feature-item">
-            <h3>Ethical Sourcing</h3>
-            <p>Ensuring animals are treated with respect and dignity throughout their lives.</p>
-        </div>
-        <div class="feature-item">
-            <h3>100% Certified</h3>
-            <p>Every ingredient is verified by recognized authorities to be 100% permissible.</p>
-        </div>
-        <div class="feature-item">
-            <h3>High Quality</h3>
-            <p>Rigorous hygiene standards that often exceed local food safety regulations.</p>
-        </div>
-    </div>
-
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <p>Have questions about Halal certification or looking for local recommendations? We’d love to hear from you.</p>
-        <p>Email: <strong>hello@halaldelights.com</strong></p>
+    <section id="checker-tool">
+        <h2>Quick Ingredient Checker</h2>
+        <p>Type an ingredient to check its general Halal status:</p>
+        <input type="text" id="ingredientInput" placeholder="e.g. Gelatin, Pectin, Lecithin" style="padding: 10px; width: 60%;">
+        <button onclick="checkIngredient()">Check Status</button>
+        <div id="result" class="result-text"></div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Halal Delights. Built with care for a conscious lifestyle.</p>
+        <p style="background: #222; color: white; text-align: center; padding: 30px; margin: 0;">
+            © 2026 Halal Delights - Serving the Community with Integrity.
+        </p>
     </footer>
 
+    <script>
+        /**
+         * Simple function to simulate an ingredient database check
+         * Demonstrates DOM manipulation and basic logic
+         */
+        function checkIngredient() {
+            const ingredient = document.getElementById('ingredientInput').value.toLowerCase().trim();
+            const resultDiv = document.getElementById('result');
+            
+            // Basic logic for demonstration
+            const haramItems = ['gelatin', 'lard', 'alcohol', 'pork', 'pepsin'];
+            const mashboohItems = ['lecithin', 'enzymes', 'flavoring']; // Mashbooh = Doubtful
+
+            if (ingredient === "") {
+                resultDiv.innerText = "Please enter an ingredient.";
+                resultDiv.style.color = "black";
+            } else if (haramItems.includes(ingredient)) {
+                resultDiv.innerText = "⚠️ Likely Haram (Avoid)";
+                resultDiv.style.color = "#d9534f";
+            } else if (mashboohItems.includes(ingredient)) {
+                resultDiv.innerText = "🔍 Mashbooh (Check Source)";
+                resultDiv.style.color = "#f0ad4e";
+            } else {
+                resultDiv.innerText = "✅ Generally Halal / Permissible";
+                resultDiv.style.color = "#2d5a27";
+            }
+        }
+    </script>
 </body>
 </html>
