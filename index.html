@@ -3,157 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halal Delights | Premium Dining</title>
+    <title>Halal Bites | Premium Experience</title>
     <style>
-        /* CSS STYLING ENHANCEMENTS */
         :root {
-            --primary-green: #2d5a27;
-            --accent-gold: #c5a059;
-            --light-bg: #fdfdfd;
+            --primary: #1b4332;
+            --secondary: #2d6a4f;
+            --accent: #d4a373;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             margin: 0;
-            background-color: var(--light-bg);
-            scroll-behavior: smooth;
+            background: #f8f9fa;
+            color: #2b2d42;
         }
 
-        /* Hero Section Styling */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            height: 60vh;
+        /* --- NAVIGATION --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 1rem 10%;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .cart-status {
+            background: var(--primary);
             color: white;
-            text-align: center;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
-        /* New Menu Section Grid */
-        .menu-grid {
+        /* --- ENHANCED MENU CARDS --- */
+        .menu-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 10%;
         }
 
-        .menu-card {
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
+        .card {
             background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
 
-        .menu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
         }
 
-        /* Interactive Checker Styling */
-        #checker-tool {
-            background: #e9f5e8;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px auto;
-            text-align: center;
-            max-width: 600px;
+        .card h3 { color: var(--primary); margin-top: 0; }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--secondary);
         }
 
-        button {
-            background: var(--primary-green);
+        /* --- BUTTON STYLING --- */
+        .btn-add {
+            background: var(--primary);
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 16px;
+            width: 100%;
+            margin-top: 15px;
+            transition: background 0.3s;
         }
 
-        button:hover { background: #1e3d1a; }
-        
-        .result-text { margin-top: 15px; font-weight: bold; font-size: 1.2rem; }
+        .btn-add:hover { background: var(--secondary); }
+
+        /* --- ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.6s all ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <h1>Welcome to Halal Keeps</h1>
-        <p>Experience the Art of Ethical Cuisine</p>
-    </header>
+<nav>
+    <h2 style="margin:0; color: var(--primary);">Halal Bites</h2>
+    <div class="cart-status">Cart: <span id="cart-count">0</span> items</div>
+</nav>
 
-    <section id="menu" style="max-width: 1000px; margin: auto; padding: 50px 20px;">
-        <h2 style="text-align: center; color: var(--primary-green);">Our Signature Menu</h2>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <div style="padding: 15px;">
-                    <h3>Lamb Kabsa</h3>
-                    <p>Slow-cooked tender lamb served over fragrant spiced rice.</p>
-                    <span style="color: var(--accent-gold); font-weight: bold;">$18.50</span>
-                </div>
-            </div>
-            <div class="menu-card">
-                <div style="padding: 15px;">
-                    <h3>Grilled Mezze Platter</h3>
-                    <p>Hummus, falafel, and halloumi with warm pita bread.</p>
-                    <span style="color: var(--accent-gold); font-weight: bold;">$14.00</span>
-                </div>
-            </div>
-            <div class="menu-card">
-                <div style="padding: 15px;">
-                    <h3>Saffron Chicken</h3>
-                    <p>Organic chicken breast marinated in saffron and yogurt.</p>
-                    <span style="color: var(--accent-gold); font-weight: bold;">$16.00</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="menu-container">
+    <div class="card fade-in">
+        <h3>Beef Rendang</h3>
+        <p>Slow-simmered in coconut milk and spices until fork-tender.</p>
+        <div class="price-tag">$19.00</div>
+        <button class="btn-add" onclick="addToCart('Beef Rendang')">Add to Plate</button>
+    </div>
 
-    <section id="checker-tool">
-        <h2>Quick Ingredient Checker</h2>
-        <p>Type an ingredient to check its general Halal status:</p>
-        <input type="text" id="ingredientInput" placeholder="e.g. Gelatin, Pectin, Lecithin" style="padding: 10px; width: 60%;">
-        <button onclick="checkIngredient()">Check Status</button>
-        <div id="result" class="result-text"></div>
-    </section>
+    <div class="card fade-in">
+        <h3>Chicken Biryani</h3>
+        <p>Aromatic basmati rice layered with spiced halal chicken.</p>
+        <div class="price-tag">$16.50</div>
+        <button class="btn-add" onclick="addToCart('Chicken Biryani')">Add to Plate</button>
+    </div>
 
-    <footer>
-        <p style="background: #222; color: white; text-align: center; padding: 30px; margin: 0;">
-            © 2026 Halal Delights - Serving the Community with Integrity.
-        </p>
-    </footer>
+    <div class="card fade-in">
+        <h3>Truffle Hummus</h3>
+        <p>Smooth chickpea purée infused with black truffle oil.</p>
+        <div class="price-tag">$12.00</div>
+        <button class="btn-add" onclick="addToCart('Truffle Hummus')">Add to Plate</button>
+    </div>
+</section>
 
-    <script>
-        /**
-         * Simple function to simulate an ingredient database check
-         * Demonstrates DOM manipulation and basic logic
-         */
-        function checkIngredient() {
-            const ingredient = document.getElementById('ingredientInput').value.toLowerCase().trim();
-            const resultDiv = document.getElementById('result');
-            
-            // Basic logic for demonstration
-            const haramItems = ['gelatin', 'lard', 'alcohol', 'pork', 'pepsin'];
-            const mashboohItems = ['lecithin', 'enzymes', 'flavoring']; // Mashbooh = Doubtful
+<script>
+    /**
+     * CART LOGIC
+     * Simple state management to handle user interaction
+     */
+    let count = 0;
+    
+    function addToCart(itemName) {
+        count++;
+        document.getElementById('cart-count').innerText = count;
+        
+        // Visual feedback
+        console.log(`${itemName} added to cart.`);
+        alert(`${itemName} has been added to your halal meal!`);
+    }
 
-            if (ingredient === "") {
-                resultDiv.innerText = "Please enter an ingredient.";
-                resultDiv.style.color = "black";
-            } else if (haramItems.includes(ingredient)) {
-                resultDiv.innerText = "⚠️ Likely Haram (Avoid)";
-                resultDiv.style.color = "#d9534f";
-            } else if (mashboohItems.includes(ingredient)) {
-                resultDiv.innerText = "🔍 Mashbooh (Check Source)";
-                resultDiv.style.color = "#f0ad4e";
-            } else {
-                resultDiv.innerText = "✅ Generally Halal / Permissible";
-                resultDiv.style.color = "#2d5a27";
+    /**
+     * SCROLL REVEAL INTERACTION
+     * Uses Intersection Observer to trigger CSS animations when items scroll into view
+     */
+    const observerOptions = { threshold: 0.1 };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
-        }
-    </script>
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
